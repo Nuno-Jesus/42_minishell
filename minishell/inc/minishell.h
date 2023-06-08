@@ -168,10 +168,11 @@ bool		is_last_command(int command_index);
  * behaviour such as cd, export, etc.
  *
  * @param command The name of the command
+ * @param arg The first argument appended with the command
  * @return true If the command is unforkable
  * @return false Otherwise
  */
-bool		is_unforkable(char *command);
+bool		is_unforkable(char *command, char *arg);
 
 /**
  * @brief Given a command name, checks if the command is a builtin.

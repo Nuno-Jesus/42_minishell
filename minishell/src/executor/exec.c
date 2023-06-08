@@ -6,7 +6,7 @@
 /*   By: ncarvalh <ncarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 19:24:58 by joacaeta          #+#    #+#             */
-/*   Updated: 2023/05/10 10:02:04 by ncarvalh         ###   ########.fr       */
+/*   Updated: 2023/06/08 15:07:59 by ncarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ pid_t	_execute_pipeline(t_ast *node)
 	last = _execute_pipeline(node->right);
 	if (!is_redir_or_pipe(node->token))
 	{
-		if (is_unforkable(node->args[0]))
+		if (is_unforkable(node->args[0], node->args[1]))
 			_execute_command(node->args);
 		else
 			last = _execute_forkable(node);

@@ -48,7 +48,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(TARGET)
 	echo "[$(CYAN)Compiling$(RESET)] $(CFLAGS) $(GREEN)libft/*$(RESET)"
-	make $(MK) -C $(LIBFT_PATH)
+	$(MAKE) $(MK) -C $(LIBFT_PATH)
 
 	echo "[$(CYAN) Linking $(RESET)] $(GREEN)*$(RESET)"
 	$(CC) $(CFLAGS) $(TARGET) -o $(NAME) -I $(DEPS) -lreadline $(LIBFT)
@@ -63,13 +63,13 @@ $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 clean:
-	make clean $(MK) -C $(LIBFT_PATH)
+	$(MAKE) clean $(MK) -C $(LIBFT_PATH)
 
 	echo "[$(RED) Deleted $(RESET)] $(GREEN)$(OBJ_DIR)$(RESET)"
 	$(RM) $(OBJ_DIR)
 
 fclean: clean
-	make fclean $(MK) -C $(LIBFT_PATH)
+	$(MAKE) fclean $(MK) -C $(LIBFT_PATH)
 
 	echo "[$(RED) Deleted $(RESET)] $(GREEN)$(NAME)$(RESET)"
 	$(RM) $(NAME)
@@ -77,6 +77,7 @@ fclean: clean
 re: fclean all
 
 run:
+	clear
 	./minishell
 
 r: re run

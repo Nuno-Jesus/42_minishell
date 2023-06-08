@@ -6,7 +6,7 @@
 /*   By: ncarvalh <ncarvalh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 16:12:35 by ncarvalh          #+#    #+#             */
-/*   Updated: 2023/05/08 08:45:10 by ncarvalh         ###   ########.fr       */
+/*   Updated: 2023/06/08 15:06:55 by ncarvalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ bool	is_last_command(int command_index)
 	return (command_index == ms()->num_commands - 1);
 }
 
-bool	is_unforkable(char *command)
+bool	is_unforkable(char *command, char *arg)
 {
 	return (!ft_strcmp(command, "cd") || !ft_strcmp(command, "exit") \
-		|| !ft_strcmp(command, "export") || !ft_strcmp(command, "unset") \
+		|| (!ft_strcmp(command, "export") && arg) || !ft_strcmp(command, "unset") \
 		|| !ft_strcmp(command, "ptmp"));
 }
 
